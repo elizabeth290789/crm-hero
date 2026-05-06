@@ -20,9 +20,33 @@
       </p>
 
       <div class="crm-features" aria-label="Ключевые возможности CRM">
-        <span>Лидогенерация</span>
-        <span>Воронка продаж</span>
-        <span>AI-помощник</span>
+        <button
+          type="button"
+          class="crm-feature-chip is-active"
+          aria-pressed="true"
+          data-feature-chip="lead-generation"
+        >
+          <span class="crm-feature-icon" aria-hidden="true">✓</span>
+          <span>Лидогенерация</span>
+        </button>
+        <button
+          type="button"
+          class="crm-feature-chip is-active"
+          aria-pressed="true"
+          data-feature-chip="sales-funnel"
+        >
+          <span class="crm-feature-icon" aria-hidden="true">✓</span>
+          <span>Воронка продаж</span>
+        </button>
+        <button
+          type="button"
+          class="crm-feature-chip is-active"
+          aria-pressed="true"
+          data-feature-chip="ai-assistant"
+        >
+          <span class="crm-feature-icon" aria-hidden="true">✓</span>
+          <span>AI-помощник</span>
+        </button>
       </div>
 
       <a
@@ -109,6 +133,47 @@
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    function useState(initialState) {
+      var state = Object.assign({}, initialState);
+
+      return [
+        function getState(key) {
+          return state[key];
+        },
+        function setState(key, nextValue) {
+          state[key] =
+            typeof nextValue === "function" ? nextValue(state[key]) : nextValue;
+
+          return state[key];
+        }
+      ];
+    }
+
+    var featureState = useState({
+      "lead-generation": true,
+      "sales-funnel": true,
+      "ai-assistant": true
+    });
+    var getFeatureActive = featureState[0];
+    var setFeatureActive = featureState[1];
+    var chips = document.querySelectorAll("[data-feature-chip]");
+
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        var featureName = chip.getAttribute("data-feature-chip");
+        var isActive = setFeatureActive(featureName, function (currentValue) {
+          return !currentValue;
+        });
+
+        chip.classList.toggle("is-active", isActive);
+        chip.setAttribute("aria-pressed", String(getFeatureActive(featureName)));
+      });
+    });
+  })();
+</script>
 
 <style>
   .crm-hero-custom,
@@ -203,35 +268,78 @@
     margin-bottom: clamp(28px, 4vw, 42px);
   }
 
-  .crm-features span {
+  .crm-feature-chip {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     min-width: 0;
     padding: 12px 18px;
-    background: rgba(255, 255, 255, 0.75);
     border: 1px solid #d7e7ff;
     border-radius: 999px;
+    background: rgba(255, 255, 255, 0.75);
+    color: #1f2937;
+    font: inherit;
     font-size: clamp(14px, 1.4vw, 15px);
     font-weight: 600;
-    color: #1f2937;
+    cursor: pointer;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 14px rgba(40, 116, 255, 0.06);
+    transition:
+      background 0.22s ease,
+      border-color 0.22s ease,
+      color 0.22s ease,
+      box-shadow 0.22s ease,
+      transform 0.22s ease;
   }
 
-  .crm-features span::before {
-    content: "✓";
+  .crm-feature-chip:hover {
+    border-color: #9cc7ff;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 8px 20px rgba(40, 116, 255, 0.12);
+    transform: translateY(-1px);
+  }
+
+  .crm-feature-chip:focus-visible {
+    outline: 3px solid rgba(47, 115, 255, 0.28);
+    outline-offset: 3px;
+  }
+
+  .crm-feature-chip:not(.is-active) {
+    border-color: #e5edf7;
+    background: rgba(255, 255, 255, 0.58);
+    color: #6b7280;
+    box-shadow: 0 3px 10px rgba(31, 41, 55, 0.04);
+  }
+
+  .crm-feature-chip:not(.is-active):hover {
+    border-color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.86);
+    color: #4b5563;
+  }
+
+  .crm-feature-icon {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--crm-blue) 0%, #5d9bff 100%);
-    color: #fff;
+    background: #f8fbff;
+    border: 1px solid #d7e7ff;
+    color: #9ca3af;
     font-size: 12px;
     font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition:
+      background 0.22s ease,
+      border-color 0.22s ease,
+      color 0.22s ease;
+  }
+
+  .crm-feature-chip.is-active .crm-feature-icon {
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--crm-blue) 0%, #5d9bff 100%);
+    color: #fff;
   }
 
   .crm-btn {
@@ -406,7 +514,7 @@
       margin-bottom: clamp(24px, 2.5vw, 34px);
     }
 
-    .crm-features span {
+    .crm-feature-chip {
       padding: 10px 14px;
       font-size: clamp(13px, 1vw, 15px);
     }
@@ -495,7 +603,7 @@
       text-align: center;
     }
 
-    .crm-features span {
+    .crm-feature-chip {
       width: 100%;
       justify-content: flex-start;
     }
