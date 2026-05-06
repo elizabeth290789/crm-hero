@@ -61,7 +61,7 @@
           <span class="trust-icon" aria-hidden="true">🔗</span>
           <div>
             <b>5 670+</b>
-            готовых интеграций
+            интеграций
           </div>
         </div>
       </div>
@@ -260,8 +260,12 @@
   }
 
   .crm-trust {
+    --crm-trust-icon-size: 20px;
+    --crm-trust-text-width: 96px;
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
     column-gap: clamp(14px, 1.7vw, 24px);
     row-gap: 16px;
     width: 100%;
@@ -270,7 +274,7 @@
 
   .crm-trust > div {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: var(--crm-trust-icon-size) minmax(0, var(--crm-trust-text-width));
     align-items: start;
     column-gap: 10px;
     min-width: 0;
@@ -281,6 +285,8 @@
 
   .crm-trust > div > div {
     min-width: 0;
+    max-width: var(--crm-trust-text-width);
+    text-wrap: balance;
   }
 
   .crm-trust b {
@@ -291,7 +297,7 @@
 
   .trust-icon {
     display: block;
-    width: 20px;
+    width: var(--crm-trust-icon-size);
     padding-top: 2px;
     font-size: 18px;
     line-height: 1;
