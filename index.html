@@ -29,7 +29,7 @@
         href="https://www.bitrix24.ru/create.php?coupon=autodemo-crm&b24_type=crm"
         class="crm-btn"
       >
-        СОЗДАТЬ БЕСПЛАТНО
+        ПОЛУЧИТЬ БЕСПЛАТНО
       </a>
 
       <div class="crm-trust">
@@ -261,15 +261,18 @@
 
   .crm-trust {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(14px, 1.6vw, 18px) clamp(18px, 2vw, 26px);
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: clamp(14px, 1.7vw, 24px);
+    row-gap: 16px;
+    width: 100%;
     max-width: 760px;
   }
 
   .crm-trust > div {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    column-gap: 10px;
     min-width: 0;
     font-size: 15px;
     line-height: 1.35;
@@ -287,10 +290,12 @@
   }
 
   .trust-icon {
+    display: block;
+    width: 20px;
+    padding-top: 2px;
     font-size: 18px;
     line-height: 1;
-    margin-top: 2px;
-    flex-shrink: 0;
+    text-align: center;
   }
 
   .crm-hero-image {
@@ -411,6 +416,7 @@
 
     .crm-trust {
       max-width: 620px;
+      column-gap: clamp(12px, 1.2vw, 18px);
     }
 
     .crm-hero-image {
@@ -433,10 +439,6 @@
       grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.85fr);
     }
 
-    .crm-trust {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .crm-benefits {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -453,6 +455,12 @@
     .crm-trust {
       margin-right: auto;
       margin-left: auto;
+    }
+
+    .crm-trust {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 560px;
+      text-align: left;
     }
 
     .crm-features {
