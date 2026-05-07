@@ -55,40 +55,6 @@
       >
         ПОЛУЧИТЬ БЕСПЛАТНО
       </a>
-
-      <div class="crm-trust">
-        <div>
-          <span class="trust-icon" aria-hidden="true">🛡</span>
-          <div>
-            <b>Бесплатно</b>
-            навсегда
-          </div>
-        </div>
-
-        <div>
-          <span class="trust-icon" aria-hidden="true">🏢</span>
-          <div>
-            <b>15 000 000+</b>
-            компаний
-          </div>
-        </div>
-
-        <div>
-          <span class="trust-icon" aria-hidden="true">☁</span>
-          <div>
-            <b>Облако</b>
-            и коробка
-          </div>
-        </div>
-
-        <div>
-          <span class="trust-icon" aria-hidden="true">🔗</span>
-          <div>
-            <b>5 670+</b>
-            интеграций
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="crm-hero-image">
@@ -203,7 +169,7 @@
     grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
     align-items: center;
     gap: clamp(28px, 3.6vw, 56px);
-    min-height: min(620px, 70vw);
+    min-height: min(560px, 64vw);
   }
 
   .crm-hero-content {
@@ -359,55 +325,12 @@
     line-height: 1.2;
     font-weight: 800;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    margin-bottom: clamp(30px, 4vw, 42px);
+    margin-bottom: 0;
   }
 
   .crm-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 28px rgba(138, 220, 0, 0.35);
-  }
-
-  .crm-trust {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 32px;
-    row-gap: 16px;
-    align-items: start;
-    width: 100%;
-    max-width: 640px;
-  }
-
-  .crm-trust > div {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    min-width: 0;
-    font-size: 15px;
-    color: var(--crm-muted);
-  }
-
-  .crm-trust > div > div {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    line-height: 1.2;
-  }
-
-  .crm-trust b {
-    display: block;
-    color: var(--crm-text);
-    margin-bottom: 2px;
-  }
-
-  .trust-icon {
-    width: 18px;
-    min-width: 18px;
-    display: flex;
-    justify-content: center;
-    margin-top: 2px;
-    font-size: 18px;
-    line-height: 1;
-    text-align: center;
   }
 
   .crm-hero-image {
@@ -426,7 +349,7 @@
   .crm-benefits {
     width: 100%;
     max-width: var(--crm-max-width);
-    margin: clamp(28px, 4vw, 40px) auto 0;
+    margin: clamp(24px, 3vw, 34px) auto 0;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: clamp(18px, 2.5vw, 26px);
@@ -483,7 +406,7 @@
     .crm-hero-inner {
       grid-template-columns: minmax(0, 0.88fr) minmax(340px, 0.98fr);
       gap: clamp(20px, 2.3vw, 34px);
-      min-height: clamp(500px, 40vw, 580px);
+      min-height: clamp(440px, 36vw, 520px);
     }
 
     .crm-hero-content {
@@ -523,7 +446,7 @@
       width: min(100%, 300px);
       min-height: 58px;
       padding: 16px 24px;
-      margin-bottom: clamp(24px, 2.5vw, 34px);
+      margin-bottom: 0;
     }
 
     .crm-hero-image {
@@ -536,7 +459,7 @@
     }
 
     .crm-benefits {
-      margin-top: clamp(24px, 3vw, 34px);
+      margin-top: clamp(20px, 2.5vw, 28px);
       padding: clamp(22px, 2.5vw, 30px) clamp(18px, 3vw, 34px);
     }
   }
@@ -558,16 +481,9 @@
       text-align: center;
     }
 
-    .crm-subtitle,
-    .crm-trust {
+    .crm-subtitle {
       margin-right: auto;
       margin-left: auto;
-    }
-
-    .crm-trust {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      max-width: 560px;
-      text-align: left;
     }
 
     .crm-features {
@@ -608,12 +524,10 @@
       justify-content: flex-start;
     }
 
-    .crm-trust,
     .crm-benefits {
       grid-template-columns: 1fr;
     }
 
-    .crm-trust > div,
     .crm-benefits > div {
       text-align: left;
     }
