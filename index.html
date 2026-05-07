@@ -1,4 +1,4 @@
-<section class="crm-hero-custom">
+<section class="block-wrapper crm-hero-custom">
   <div class="crm-hero-inner">
     <div class="crm-hero-content">
       <a
@@ -10,9 +10,7 @@
         ☆ CRM №1 в России
       </a>
 
-      <h1>
-        Бесплатная <span>онлайн CRM</span>
-      </h1>
+      <h1 class="crm-hero-title">$title$</h1>
 
       <p class="crm-subtitle">
         Управляйте клиентами, автоматизируйте работу менеджеров и увеличивайте продажи
@@ -245,16 +243,15 @@
     line-height: clamp(0.92em, calc(0.86em + 0.3vw), 0.96em);
     font-weight: 900;
     letter-spacing: -0.04em;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
     word-break: normal;
     hyphens: auto;
     text-wrap: balance;
   }
 
   .crm-hero-content h1 span {
-    display: block;
+    display: inline;
     max-width: 100%;
-    color: var(--crm-blue);
     white-space: normal;
     overflow-wrap: inherit;
     word-break: inherit;
