@@ -11,8 +11,7 @@
       </a>
 
       <h1>
-        Бесплатная<br />
-        <span>онлайн&nbsp;CRM</span>
+        Бесплатная <span>онлайн CRM</span>
       </h1>
 
       <p class="crm-subtitle">
@@ -240,18 +239,26 @@
   }
 
   .crm-hero-content h1 {
+    max-width: 100%;
     margin: 0 0 clamp(18px, 3vw, 26px);
     font-size: clamp(40px, 5.8vw, 86px);
     line-height: clamp(0.92em, calc(0.86em + 0.3vw), 0.96em);
     font-weight: 900;
     letter-spacing: -0.04em;
-    overflow-wrap: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    hyphens: auto;
     text-wrap: balance;
   }
 
   .crm-hero-content h1 span {
+    display: block;
+    max-width: 100%;
     color: var(--crm-blue);
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: inherit;
+    word-break: inherit;
+    hyphens: inherit;
   }
 
   .crm-subtitle {
@@ -651,8 +658,8 @@
 
     .crm-hero-content h1 {
       margin-bottom: clamp(14px, 1.8vw, 20px);
-      font-size: clamp(46px, 4.8vw, 72px);
-      line-height: 0.93;
+      font-size: clamp(42px, 4.4vw, 72px);
+      line-height: 0.98;
       letter-spacing: -0.045em;
     }
 
@@ -712,6 +719,11 @@
   }
 
   @media (max-width: 860px) {
+    .crm-hero-content h1 {
+      font-size: clamp(38px, 9.4vw, 58px);
+      line-height: 1;
+    }
+
     .crm-hero-inner {
       grid-template-columns: 1fr;
       min-height: auto;
@@ -784,7 +796,8 @@
 
   @media (max-width: 380px) {
     .crm-hero-content h1 {
-      font-size: 36px;
+      font-size: clamp(32px, 10vw, 36px);
+      line-height: 1.04;
     }
 
     .crm-benefit-card {
